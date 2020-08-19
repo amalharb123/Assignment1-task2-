@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  </head>
+  <body>
+    <a href="/create"><button type="button" style="margin-bottom: 10px;" class="btn btn-primary btn-lg">Create New Post +</button></a>
+    <div class="row row-cols-1 row-cols-md-2">
+      <% records.forEach(function(row){%>
+        <div class="col mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= row.user_name %></h5>
+            <img src="./uploads/<%= row.post_image %>" class="card-img-top" alt="...">
+              <p class="card-text"><%= row.description %></p>
+              <small style="color: #8e8e8e; cursor: pointer;">View all Comments</small><br>
+              <small><b>Emma Watson</b> Nice Pic!<i style="float: right; color: #ed4956; cursor: pointer;" class="fa fa-heart"></i></small><br>
+              <small><b>Emma Stone</b> Looking Cool! <i style="float: right; cursor: pointer;" class="fa fa-heart"></i></small>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+                  
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+                      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+                      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+  </body>
+</html>
