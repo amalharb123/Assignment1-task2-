@@ -1,5 +1,20 @@
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test:pass@cluster0.ynci4.mongodb.net/posts?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
+
+
+
+
 var mongoose =require("mongoose");
-mongoose.connect('mongodb+srv://test:r2[ZY9@6qlXYt5@cluster0.iz9hd.mongodb.net/products?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(uri, {user: process.env.MONGO_USER, pass: process.env.MONGO_PASSWORD, useNewUrlParser: true, useUnifiedTopology: true});
 var conn=mongoose.connection;
 var postsSchema = new mongoose.Schema({
     description: String,
